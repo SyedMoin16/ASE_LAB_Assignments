@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="myApp" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>My AngularJS App</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+    <style>
+
+        .menu input{
+            width: 300px;
+            background: transparent;
+            border: 2px solid #8a97a0;
+            border-radius: 4px;
+            color: white;
+            font-family: 'Exo', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 6px;
+            margin-top: 10px;
+        }
+        .menu button{
+            width: 419px;
+            height:40px;
+            background:#000000;
+            border:  2px solid #ffffff;
+            cursor: pointer;
+            border-radius: 4px;
+            color: #ffffff;
+            font-family: 'Exo', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 6px;
+            margin-top: 10px;
+        }
+        table {
+            max-width: 960px;
+            margin: 10px auto;
+            border: 1px solid #FFF;
+        }
+
+        caption {
+            font-size: 1.6em;
+            font-weight: 400;
+            padding: 10px 0;
+        }
+
+        thead th {
+            font-weight: 400;
+            background: #8a97a0;
+            color: #FFF;
+        }
+
+        tr {
+            background: #f4f7f8;
+            border: 1px solid #FFF;
+            margin-bottom: 5px;
+        }
+
+        tr:nth-child(even) {
+            background: #e8eeef;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 20px;
+            font-weight: 300;
+        }
+
+        tfoot tr {
+            background: none;
+        }
+
+        tfoot td {
+            padding: 10px 2px;
+            font-size: 0.8em;
+            font-style: italic;
+            color: #8a97a0;
+        }
+    </style>
+    <link rel="stylesheet" href="css/app.css">
+
+
+</head>
+<body class="body" background="bg1.jpg">
+
+
+<div  ng-controller="View1Ctrl" style="top: 200px">
+    <div class="menu" id="div_Search" align="center">
+        <input type="text" id="txt_searchFilter" placeholder="Enter the search query"/>
+        <button id="btn_getReview" ng-click="getVenues()">Search from Google Knowledge API</button>
+    </div>
+
+
+    <div id="SearchList" style="display:none;"  >
+
+
+        <p ng-model="searchList">
+
+        <TABLE BORDER=2 CELLPADDING=1> <TR> <TH style="color: aliceblue; background:#000000" COLSPAN=2>Results</TH> </TR>
+            <TR> <TD>Name</TD> <TD>{{searchList.name}}</TD> </TR>
+            <TR> <TD>Description</TD> <TD>{{searchList.description}}</TD> </TR>
+            <TR> <TD>URL</TD> <TD>{{searchList.url}}</TD> </TR>
+            <TR> <TD>Detailed Description</TD><TD>{{searchList.full_descrption}}</TD> </TR>
+        </TABLE>
+
+        </p>
+        
+        <div align="center">
+            
+            <img src="{{searchList.image}}">
+        </div>
+<div class="menu" align="center">
+
+    <input ng-click="record(searchList.full_descrption)" type='button' value='🔊 Speech using Responsive API' />
+</div>
+
+        <div id="Review" class="menu" align="center" >
+            <button id="getReview" ng-click="getReviews(searchList.full_descrption)">Review using Alchemy API</button>
+
+        </div>
+
+    </div>
+
+
+    <div id="ReviewList" style="display:none;"  >
+
+
+        <p ng-model="ReviewWithSentiment">
+
+        <TABLE BORDER=2 CELLPADDING=4> <TR> <TH style="color: aliceblue; background:#000000" COLSPAN=2>Sentiment Analysis From Using Alchemy API </TH> </TR>
+            <TR> <TD>Sentiment</TD> <TD>{{ReviewWithSentiment.sentiment}}</TD> </TR>
+            <TR> <TD>Sentiment Score</TD> <TD>{{ReviewWithSentiment.score}}</TD> </TR>
+        </TABLE>
+
+        </p>
+
+    </div>
+
+
+
+</div>
+
+
+<!-- In production use:
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+-->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+<script src="js/app.js"></script>
+<script src='https://code.responsivevoice.org/responsivevoice.js'></script>
+
+
+
+</body>
+</html>
