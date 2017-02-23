@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bkrdimg"
+    tools:context="com.example.syedm.clicker.MainActivity"
+    tools:deviceIds="wear_round">
+
+    <Button
+        android:text="Click"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonClick"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+
+        tools:textColorLink="@color/black" />
+
+    <Button
+        android:text="Reset"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonReset"
+        android:layout_below="@+id/buttonClick"
+        android:layout_alignStart="@+id/buttonClick" />
+
+    <TextView
+        android:id="@+id/textViewCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="20sp"
+        android:layout_above="@+id/buttonClick"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="18dp"
+        android:textColor="@color/black"
+        tools:textColor="@color/black" />
+</RelativeLayout>
