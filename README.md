@@ -12,3 +12,5 @@ Lab 5- https://github.com/SyedMoin16/ASE_LAB_Assignments/wiki/LAB-ASSIGNMENT-5
 Lab 6- https://github.com/SyedMoin16/ASE_LAB_Assignments/wiki/LAB-ASSIGNMENT-6
 
 Lab 7- https://github.com/SyedMoin16/ASE_LAB_Assignments/wiki/LAB-ASSIGNMENT-7
+
+Lab 8-https://github.com/SyedMoin16/ASE_LAB_Assignments/wiki/LAB-ASSIGNMENT-8
