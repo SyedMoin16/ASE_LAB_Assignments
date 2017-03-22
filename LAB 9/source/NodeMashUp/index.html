@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Mashup Using NodeJS</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <!--W3 CSS--->
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <!-- JS -->
+    <!-- load angular, ngRoute, ngAnimate -->
+    <script src="http://code.angularjs.org/1.2.13/angular.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular-route.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.13/angular-animate.js"></script>
+    <script src="app.js"></script>
+</head>
+<body ng-app="NodeMashupApp" style="background: url(images/Sentiment-Analysis.jpg) no-repeat center;background-size:cover;">
+<!--<nav class="navbar navbar-default" style="height: 10%;background-color: #1aa3ff">-->
+    <!--<div class="container-fluid">-->
+        <!--&lt;!&ndash;<div class="row">&ndash;&gt;-->
+            <!--&lt;!&ndash;&lt;!&ndash;<div class="col-md-1 col-md-offset-1">&ndash;&gt;&ndash;&gt;-->
+                <!--&lt;!&ndash;&lt;!&ndash;<img src="images/icon.jpg" width="60px" height="55px">&ndash;&gt;&ndash;&gt;-->
+            <!--&lt;!&ndash;&lt;!&ndash;</div>&ndash;&gt;&ndash;&gt;-->
+            <!--&lt;!&ndash;<div class="col-md-10">&ndash;&gt;-->
+                <!--&lt;!&ndash;<h2><b>Google Knowledge Search & Sentiment Analysis</b></h2>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--</nav>-->
+<div class="container-fluid" ng-controller="lab9">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-1">
+            <input id="txt_searchFilter" type="text" placeholder="Enter the Query" class="w3-input w3-border w3-round w3-light-grey">
+        </div>
+        <div class="co-md-2">
+            <button class="w3-btn w3-dark-grey w3-round-large w3-ripple" ng-click="searchData()">Search using Google Knowledge API</button>
+        </div>
+    </div>
+    <div id="search_body" class="row" style="display:none; ">
+
+        <div class="col-md-6 col-md-offset-1" style="top: 40px;">
+            <div>
+                <table BORDER=2 class="w3-table w3-striped w3-border w3-centered w3-card-4">
+                    <tr>
+                        <th style="color: aliceblue; background:#000000" colspan="2">
+                             Details
+                        </th>
+                    </tr>
+                    <tr>
+                        <td class="w3-khaki"> Name</td>
+                        <td class="w3-sand">{{searchDetails.name}}</td>
+                    </tr>
+                    <tr class="w3-white">
+                        <td class="w3-khaki">Description</td>
+                        <td class="w3-sand">{{searchDetails.detailedDescription.articleBody}}</td>
+                    </tr>
+                    <tr class="w3-white">
+                        <td class="w3-khaki">URL</td>
+                        <td class="w3-sand">{{searchDetails.detailedDescription.url}}</td>
+                    </tr>
+                    <tr class="w3-white">
+                        <td class="w3-khaki">Image</td>
+                        <td class="w3-sand"><img ng-src="{{searchDetails.image.contentUrl}}" alt="{{searchDetails.name}}" width="150px" height="150px"></td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+<div><br><div/>
+            <div  class="col-md-4 col-md-offset-1" style="margin-bottom:200px; position: relative; top: 270px;">
+            <table BORDER=2 CELLPADDING=4 class="w3-table w3-striped w3-border w3-centered w3-card-4" >
+                <tr>
+                    <th style="color: aliceblue; background:#000000" COLSPAN=2>
+                        Sentiment Analysis
+                    </th>
+                </tr>
+                <tr class="w3-white">
+                    <td class="w3-khaki">
+                        Sentiment
+                    </td>
+                    <td class="w3-sand">
+                        {{senti_type}}
+                    </td>
+                </tr>
+                <tr class="w3-white">
+                    <td class="w3-khaki">
+                        Sentiment Score
+                    </td>
+                    <td class="w3-sand">
+                        {{senti_score}}
+                    </td>
+                </tr>
+
+
+            </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
